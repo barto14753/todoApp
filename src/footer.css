@@ -1,0 +1,56 @@
+footer {
+  background-color: rgb(5, 112, 233);
+  position: relative;
+  left: 0;
+  bottom: 0;
+  height: 120px;
+  width: 100%;
+  overflow: hidden;
+}
+
+p {
+  text-align: center;
+  color: white;
+  font-size: 15px;
+}
+
+#lab_social_icon_footer {
+  padding: 40px 0;
+  background-color: #338bff;
+}
+
+#lab_social_icon_footer a {
+  color: #333;
+}
+
+#lab_social_icon_footer .social:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+#lab_social_icon_footer .social {
+  -webkit-transform: scale(0.8);
+  /* Browser Variations: */
+
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+/*
+      Multicoloured Hover Variations
+  */
+
+#lab_social_icon_footer #social-fb {
+  color: #ffffff;
+}
+
+#lab_social_icon_footer #social-tw {
+  color: #ffffff;
+}
+
+#lab_social_icon_footer #social-gp {
+  color: #ffffff;
+}

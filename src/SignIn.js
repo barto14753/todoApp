@@ -1,0 +1,103 @@
+import React, {useState} from "react";
+import { Link } from "@reach/router";
+import { auth, signInWithGoogle } from "../src/firebase";
+import UserProvider from "./UserProvider";
+import Button from 'react-bootstrap/Button';
+import '../src/SignIn.css';
+import MyNavbar from "./Navbar";
+
+const SignIn = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+    const signInWithEmailAndPasswordHandler = 
+            (event,email, password) => {
+                event.preventDefault();
+                auth.signInWithEmailAndPassword(email, password)
+
+                
+    };
+
+      const onChangeHandler = (event) => {
+          const {name, value} = event.currentTarget;
+
+          if(name === 'userEmail') {
+              setEmail(value);
+          }
+          else if(name === 'userPassword'){
+            setPassword(value);
+          }
+      };
+
+  return (
+    <div className="mt-8">
+      <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8 text-center">
+        {error !== null && <div className = "py-4 bg-red-600 w-full text-white text-center mb-3">{error}</div>}
+		<h1 className="text-3xl mb-2 text-center font-bold">Sign In</h1>
+		<form>
+          <table>
+            <tr >
+            	<td>
+                	<label htmlFor="userEmail" className="block">Email:</label>{' '}
+            	</td>
+            	<td>
+              		<input
+              		type="email"
+            		className="my-1 p-1 w-full"
+            		name="userEmail"
+            		value = {email}
+            		placeholder="Email"
+            		id="userEmail"
+            		onChange = {(event) => onChangeHandler(event)}
+          			/>{' '}
+              </td>
+            </tr>
+			<tr>
+				<td>
+					<label htmlFor="userPassword" className="block">Password:</label>
+				</td>
+				<td>
+					<input
+					type="password"
+					className="mt-1 mb-3 p-1 w-full"
+					name="userPassword"
+					value = {password}
+					placeholder="Password"
+					id="userPassword"
+					onChange = {(event) => onChangeHandler(event)}
+					/>
+				</td>
+
+			</tr>			
+				
+        
+          </table>
+        </form>
+
+		<p>
+		<Link to="ProfilePage" className="bg-green-400 hover:bg-green-500 w-full py-2 text-black" onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}>
+            <Button variant="primary">Sign in</Button>
+        </Link>
+		</p>
+
+
+        <div className="text-center my-3">or</div>
+		<Button variant="primary" onClick={event => {
+          signInWithGoogle();
+        }}>Sign In with Google</Button>
+
+        <div className="text-center my-3">
+          Don't have an account?{" "}
+          <Link to="/signUp" className="text-blue-500 hover:text-blue-600">
+            Sign up here
+          </Link>{" "}
+          <br />{" "}
+          <Link to = "/passwordReset" className="text-blue-500 hover:text-blue-600">
+            Forgot Password?
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default SignIn;

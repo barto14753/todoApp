@@ -1,0 +1,111 @@
+.cards-container {
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+.card {
+  width: 260px;
+  height: 320px;
+  box-shadow: rgb(98, 222, 85) 5px 5px 15px 1px;
+
+  text-align: center;
+}
+
+.card:hover {
+  box-shadow: rgb(98, 222, 85) 5px 5px 15px 20px;
+}
+
+#cardImg {
+  width: 260px;
+  height: 250px;
+  opacity: 30%;
+  background-color: #18ff105e;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 260px;
+  height: 320px;
+  margin-right: 40px;
+  margin-left: 40px;
+  margin-bottom: 50px;
+  perspective: 1000px;
+}
+
+.card-title {
+  margin-top: 5px;
+  color: rgb(255, 255, 255);
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: rgb(98, 222, 85) 5px 5px 15px 1px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  color: black;
+}
+
+.flip-card-back {
+  background: rgb(98, 222, 85);
+  color: white;
+  transform: rotateY(180deg);
+  position: relative;
+  padding: 10px;
+}
+
+#cover {
+  background: rgb(98, 222, 85);
+  height: 100%;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+body {
+  width: 100%;
+}
+
+input[type="checkbox"] {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(3); /* IE */
+  -moz-transform: scale(3); /* FF */
+  -webkit-transform: scale(3); /* Safari and Chrome */
+  -o-transform: scale(3); /* Opera */
+  transform: scale(3);
+  padding: 10px;
+  position: absolute;
+  bottom: 22px;
+  right: 25px;
+}
+
+#delete {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
